@@ -41,15 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 }.getType();
                 ArrayList<UserNote> fromJson = new GsonBuilder().create().fromJson(savedNotes,type);
                notesAdapter.setNewData(fromJson);
-             //   userNotes.addAll(fromJson); // Home work task
+               userNotes.addAll(fromJson); // Home work task
             } catch (JsonSyntaxException e) {
                 Toast.makeText(this, "Ошибка трансформации", Toast.LENGTH_SHORT).show();
             }
         }
 
         findViewById(R.id.fab).setOnClickListener(view -> {
-         //   int c = userNotes.size(); // Home work task
-            int c=1;
+            int c = userNotes.size(); // Home work task
             userNotes.add(new UserNote("New note " + (c + 1), new Date(),// Home work task
                     "Description " + (c + 1)));
            notesAdapter.setNewData(userNotes);
